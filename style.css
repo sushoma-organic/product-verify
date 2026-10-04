@@ -1,0 +1,565 @@
+/* ================================================
+   SUSHOMA ULTRA-LUXURY DESIGN SYSTEM (V2.0)
+   Dark Emerald, Liquid Gold & Glassmorphism
+================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --emerald-deep: #031a12;
+    --emerald-card: rgba(6, 38, 27, 0.65);
+    --gold-primary: #d4af37;
+    --gold-light: #f3e5ab;
+    --gold-glow: rgba(212, 175, 55, 0.25);
+    --text-main: #f0f4f1;
+    --text-muted: #9fb3a8;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', 'Hind Siliguri', sans-serif;
+    min-height: 100vh;
+    color: var(--text-main);
+    background-color: var(--emerald-deep);
+    background-image: 
+        radial-gradient(circle at 10% 10%, rgba(13, 79, 53, 0.4) 0%, transparent 40%),
+        radial-gradient(circle at 90% 90%, rgba(184, 134, 11, 0.15) 0%, transparent 45%),
+        linear-gradient(135deg, #020d09 0%, #06261b 100%);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Ambient Floating Orbs */
+.ambient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 0;
+    opacity: 0.4;
+    pointer-events: none;
+}
+.orb-1 {
+    width: 350px;
+    height: 350px;
+    background: rgba(8, 115, 77, 0.35);
+    top: -100px;
+    left: -100px;
+    animation: floatOrb 10s ease-in-out infinite alternate;
+}
+.orb-2 {
+    width: 400px;
+    height: 400px;
+    background: rgba(212, 175, 55, 0.15);
+    bottom: -150px;
+    right: -100px;
+    animation: floatOrb 12s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes floatOrb {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(40px) scale(1.1); }
+}
+
+/* Language Switcher */
+.lang-switcher {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    z-index: 10;
+}
+
+.lang-switcher button {
+    background: rgba(6, 38, 27, 0.8);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    color: var(--gold-light);
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.lang-switcher button:hover {
+    background: var(--gold-primary);
+    color: var(--emerald-deep);
+    border-color: var(--gold-primary);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Main Container */
+.verification-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 15px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Ultra Luxury Glass Card */
+.glass-luxury {
+    background: linear-gradient(145deg, rgba(10, 48, 35, 0.75), rgba(4, 23, 16, 0.85));
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    box-shadow: 
+        0 35px 70px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 0 40px rgba(8, 115, 77, 0.2);
+    width: 100%;
+    max-width: 480px;
+    padding: 42px 35px 32px;
+    border-radius: 32px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Luxury Badge Header */
+.luxury-badge {
+    display: inline-block;
+    padding: 4px 14px;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 20px;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--gold-light);
+    margin-bottom: 18px;
+    text-transform: uppercase;
+}
+
+/* Brand & Logo Emblem */
+.brand {
+    margin-bottom: 20px;
+}
+
+.logo-emblem {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 12px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, rgba(6, 38, 27, 0.8) 70%);
+    border-radius: 50%;
+    border: 1.5px solid rgba(212, 175, 55, 0.5);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+}
+
+.logo-icon {
+    font-size: 28px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+
+.brand-name {
+    font-family: 'Cinzel', serif;
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #ffffff 30%, var(--gold-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.brand-tagline {
+    margin-top: 4px;
+    font-size: 13px;
+    color: var(--gold-light);
+    letter-spacing: 0.5px;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* Pulsing Check Icon Box */
+.verify-icon-box {
+    width: 76px;
+    height: 76px;
+    margin: 18px auto 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.verify-icon {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 34px;
+    color: var(--emerald-deep);
+    background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+    position: relative;
+    z-index: 2;
+    font-weight: 800;
+}
+
+.pulse-ring {
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 2px solid var(--gold-primary);
+    animation: ultraPulse 2.5s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+    opacity: 0.8;
+}
+
+@keyframes ultraPulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.35); opacity: 0; }
+}
+
+h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 26px;
+    color: #ffffff;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 13.5px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Input Area */
+.input-area {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-area label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    color: var(--gold-light);
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 18px;
+    font-size: 16px;
+    opacity: 0.7;
+}
+
+.input-area input {
+    width: 100%;
+    height: 56px;
+    padding: 0 18px 0 50px;
+    border: 1.5px solid rgba(212, 175, 55, 0.3);
+    border-radius: 16px;
+    background: rgba(2, 15, 10, 0.6);
+    color: #ffffff;
+    font-size: 16px;
+    font-family: 'Plus Jakarta Sans', monospace;
+    letter-spacing: 1px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-area input::placeholder {
+    color: #557062;
+    letter-spacing: normal;
+}
+
+.input-area input:focus {
+    border-color: var(--gold-primary);
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15), inset 0 0 15px rgba(212, 175, 55, 0.1);
+}
+
+/* Luxury Primary Button */
+.luxury-primary-btn {
+    width: 100%;
+    height: 56px;
+    border: none;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #e6c55c 0%, #b8860b 100%);
+    color: #031a12;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(184, 134, 11, 0.35);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.luxury-primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(184, 134, 11, 0.5);
+    filter: brightness(1.08);
+}
+
+.luxury-primary-btn:active {
+    transform: translateY(-1px);
+}
+
+/* Contact Box Luxury */
+.contact-box-luxury {
+    margin-top: 20px;
+    padding: 16px;
+    background: rgba(2, 15, 10, 0.5);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 16px;
+    text-align: left;
+}
+
+.contact-header {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.contact-item {
+    font-size: 13px;
+    color: var(--text-main);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.contact-item:hover {
+    color: var(--gold-light);
+}
+
+.loader {
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: 2.5px solid rgba(3, 26, 18, 0.4);
+    border-top-color: #031a12;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+.loading .loader { display: inline-block; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.footer {
+    margin-top: 22px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 10.5px;
+    color: #6c8a7b;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+/* ================================================
+   ULTRA LUXURY POPUP MODAL
+================================================ */
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(1, 10, 7, 0.8);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.35s ease;
+    z-index: 1000;
+}
+
+.popup-overlay.show { opacity: 1; visibility: visible; }
+
+.glass-luxury-popup {
+    background: linear-gradient(145deg, rgba(8, 43, 31, 0.95), rgba(3, 20, 14, 0.98));
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    box-shadow: 0 40px 90px rgba(0,0,0,0.8), 0 0 50px rgba(8, 115, 77, 0.4);
+    width: 100%;
+    max-width: 440px;
+    padding: 38px 28px 28px;
+    border-radius: 30px;
+    text-align: center;
+    position: relative;
+    transform: scale(0.85);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.popup-overlay.show .glass-luxury-popup { transform: scale(1); }
+
+.close-btn {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    color: var(--text-main);
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.close-btn:hover { background: rgba(212, 175, 55, 0.2); color: var(--gold-light); }
+
+.popup-icon-box {
+    width: 74px;
+    height: 74px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+    font-weight: bold;
+}
+
+.popup.success .popup-icon-box {
+    background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
+    color: var(--emerald-deep);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+}
+
+.popup.failed .popup-icon-box {
+    background: linear-gradient(135deg, #ff6b6b, #c92a2a);
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(201, 42, 42, 0.4);
+}
+
+.popup h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.popup > p {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+}
+
+/* Product Info Card */
+.product-info-card {
+    display: none;
+    text-align: left;
+    margin: 15px 0;
+    padding: 16px;
+    border-radius: 16px;
+    background: rgba(2, 15, 10, 0.7);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.product-info-card.show { display: block; }
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 13px;
+}
+
+.info-row:last-child { border-bottom: none; }
+.info-label { color: #829e90; font-weight: 500; }
+.info-value { color: var(--gold-light); font-weight: 600; text-align: right; }
+
+/* Social Share Section */
+.share-section {
+    margin: 18px 0;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.share-title {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.share-btn {
+    padding: 7px 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.2s, filter 0.2s;
+}
+
+.share-btn.whatsapp { background: #25d366; }
+.share-btn.messenger { background: #0084ff; }
+.share-btn.telegram { background: #0088cc; }
+.share-btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+
+.popup-btn-luxury {
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
+    color: var(--emerald-deep);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s;
+    box-shadow: 0 8px 20px rgba(184, 134, 11, 0.3);
+}
+
+.popup-btn-luxury:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}

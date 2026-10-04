@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUSHOMA | Ultra-Luxury Authentication</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Cinzel:wght@600;700;800&family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Ambient Luxury Glow Orbs -->
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button id="langBtn" onclick="toggleLanguage()">
+            <span class="lang-icon">🌐</span> <span id="langText">ENG / বাংলা</span>
+        </button>
+    </div>
+
+    <main class="verification-page">
+        <div class="card glass-luxury" id="luxuryCard">
+            
+            <!-- Gold Crown/Badge Accent -->
+            <div class="luxury-badge">
+                <span>✨ OFFICIAL AUTHENTICATION</span>
+            </div>
+
+            <!-- Brand & Logo -->
+            <div class="brand">
+                <div class="logo-emblem">
+                    <div class="emblem-ring"></div>
+                    <span class="logo-icon">🌿</span>
+                </div>
+                <div class="brand-name">SUSHOMA</div>
+                <div class="brand-tagline" data-en="The Pinnacle of Organic Elegance" data-bn="প্রকৃতির সর্বোচ্চ বিশুদ্ধতা ও আভিজাত্য">প্রকৃতির সর্বোচ্চ বিশুদ্ধতা ও আভিজাত্য</div>
+            </div>
+
+            <div class="verify-icon-box">
+                <div class="pulse-ring"></div>
+                <div class="verify-icon">✓</div>
+            </div>
+
+            <h1 data-en="Product Authentication" data-bn="পণ্যের সত্যতা যাচাই">পণ্যের সত্যতা যাচাই</h1>
+
+            <p class="subtitle" data-en="Enter your secure product identifier below to verify authenticity." data-bn="আপনার সুষমা পণ্যটি ১০০% আসল কি না তা নিশ্চিত করতে নিচের বক্সে আইডি লিখুন।">
+                আপনার সুষমা পণ্যটি ১০০% আসল কি না তা নিশ্চিত করতে নিচের বক্সে আইডি লিখুন।
+            </p>
+
+            <div class="input-area">
+                <label for="productId" data-en="SECURE PRODUCT ID" data-bn="সিকিউর প্রোডাক্ট আইডি">সিকিউর প্রোডাক্ট আইডি</label>
+                <div class="input-wrapper">
+                    <span class="input-icon">🔒</span>
+                    <input
+                        type="text"
+                        id="productId"
+                        placeholder="e.g. SH-2026-000001"
+                        autocomplete="off"
+                    >
+                </div>
+            </div>
+
+            <button id="verifyBtn" class="luxury-primary-btn" onclick="verifyProduct()">
+                <span class="btn-glow"></span>
+                <span id="btnText" data-en="Verify Authenticity" data-bn="সত্যতা যাচাই করুন">সত্যতা যাচাই করুন</span>
+                <span id="loader" class="loader"></span>
+            </button>
+
+            <!-- Contact & Help Box -->
+            <div class="contact-box-luxury">
+                <div class="contact-header" data-en="DIRECT CONCIERGE" data-bn="সরাসরি যোগাযোগ">সরাসরি যোগাযোগ</div>
+                <div class="contact-links">
+                    <a href="https://sushoma.com" target="_blank" class="contact-item">
+                        <span class="c-icon">🌐</span> <span>sushoma.com</span>
+                    </a>
+                    <a href="mailto:care@sushoma.com" class="contact-item">
+                        <span class="c-icon">✉️</span> <span>care@sushoma.com</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer">
+                <span class="footer-emblem">🌿</span>
+                <span>SUSHOMA LUXURY LABS — SECURE VAULT</span>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Ultra Premium Result Popup -->
+    <div id="popupOverlay" class="popup-overlay">
+        <div id="popup" class="popup glass-luxury-popup">
+
+            <button class="close-btn" onclick="closePopup()">✕</button>
+
+            <div id="popupIcon" class="popup-icon-box"></div>
+
+            <h2 id="popupTitle"></h2>
+
+            <p id="popupMessage"></p>
+
+            <div id="productInfo" class="product-info-card"></div>
+
+            <!-- Social Share Section -->
+            <div id="shareSection" class="share-section" style="display: none;">
+                <p class="share-title" data-en="Share with your inner circle:" data-bn="আপনার বন্ধুদের সাথে শেয়ার করুন">আপনার বন্ধুদের সাথে শেয়ার করুন</p>
+                <div class="share-buttons">
+                    <button class="share-btn whatsapp" onclick="shareResult('whatsapp')">💬 WhatsApp</button>
+                    <button class="share-btn messenger" onclick="shareResult('messenger')">🔵 Messenger</button>
+                    <button class="share-btn telegram" onclick="shareResult('telegram')">✈ Telegram</button>
+                </div>
+            </div>
+
+            <button class="popup-btn-luxury" onclick="closePopup()" data-en="Verify Another Item" data-bn="অন্য প্রোডাক্ট যাচাই করুন">
+                অন্য প্রোডাক্ট যাচাই করুন
+            </button>
+
+        </div>
+    </div>
+
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
