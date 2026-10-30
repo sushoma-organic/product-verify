@@ -31,7 +31,7 @@ const CONFIG = {
     CONTACT: {
         website: "https://sushoma.com",
         email: "care@sushoma.com",
-        phones: ["01911199262"],           // hotline (first number is used everywhere)
+        phones: ["01911199262", "01718019568"], // first number = hotline (used in fail popup & WhatsApp)
         whatsapp: "8801911199262",
         messenger: "sushoma.haircare",
         facebook: "sushoma.haircare",
@@ -263,6 +263,8 @@ const els = {
 const t = (key) => (I18N[state.lang] && I18N[state.lang][key]) || key;
 const icon = (name) => `<svg class="ico" aria-hidden="true"><use href="#i-${name}"></use></svg>`;
 const esc = (v) => String(v ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+// Make "১০০%" / "100%" stand out so it is easy to read
+const pct = (html) => String(html).replace(/([০-৯0-9]+\s?%)/g, '<b class="pct">$1</b>');
 const toBn = (n) => String(n).replace(/\d/g, (d) => "০১২৩৪৫৬৭৮৯"[d]);
 const num = (n) => (state.lang === "bn" ? toBn(n) : String(n));
 const compactId = (v) => String(v || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
@@ -352,7 +354,7 @@ function renderContact() {
         contactChip("whatsapp", "WhatsApp", "https://wa.me/" + C.whatsapp, true),
         contactChip("messenger", "Messenger", "https://m.me/" + C.messenger, true),
         // Email is last: the odd item spans the full row, so it is never cut off
-        contactChip("mail", C.email, "mailto:" + C.email)
+        contactChip("mail", C.email, "mailto:" + C.email).replace('class="contact-item"', 'class="contact-item full"')
     ];
     els.contactGrid.innerHTML = items.join("");
     els.contactAddress.innerHTML = `${icon("pin")}<span>${esc(C.address[state.lang] || C.address.bn)}</span>`;
@@ -361,7 +363,7 @@ function renderContact() {
 /* ---------- language ---------- */
 function applyLanguage() {
     document.documentElement.lang = state.lang;
-    document.querySelectorAll("[data-i18n]").forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    document.querySelectorAll("[data-i18n]").forEach((el) => { el.innerHTML = pct(esc(t(el.dataset.i18n))); });
     document.querySelectorAll("[data-i18n-ph]").forEach((el) => { el.placeholder = t(el.dataset.i18nPh); });
     $("langText").textContent = t("langSwitch");
     renderBrand();
@@ -501,7 +503,7 @@ function renderPopup() {
     const titles = { success: "okTitle", notVerified: "notVerTitle", notFound: "notFoundTitle", error: "errTitle" };
     const msgs = { success: "okMsg", notVerified: "notVerMsg", notFound: "notFoundMsg", error: "errMsg" };
     els.popupTitle.textContent = t(titles[r.kind]);
-    els.popupMessage.innerHTML = ok ? t("okMsg") : `${t(msgs[r.kind])}<br><br>${t("failAdvice")}`;
+    els.popupMessage.innerHTML = pct(ok ? t("okMsg") : `${t(msgs[r.kind])}<br><br>${t("failAdvice")}`);
 
     if (ok) {
         const d = r.data;

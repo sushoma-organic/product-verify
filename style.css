@@ -699,3 +699,109 @@ body { padding-bottom: 64px; }
 
 /* Bangla letters must not be letter-spaced */
 html[lang="bn"] .member-kicker, html[lang="bn"] .member-rules-title { letter-spacing: .3px; }
+
+/* ==========================================================================
+   10. PREMIUM HERBAL THEME — one soft ivory colour on both sides,
+       vine/leaf ornaments, and green used only inside sections
+   ========================================================================== */
+:root { --vine: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 260'%3E%3Cpath d='M-5 250C40 190 60 140 70 95S110 20 170 5' fill='none' stroke='%231E3F20' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpath d='M70 95C95 90 120 100 140 125' fill='none' stroke='%231E3F20' stroke-width='1.6'/%3E%3Cpath d='M40 175C20 160 5 150-5 150' fill='none' stroke='%231E3F20' stroke-width='1.6'/%3E%3Cg transform='translate%2822 200%29 rotate%28-60%29 scale%281%29'%3E%3Cpath d='M0 0C9-11 27-12 38 0C27 12 9 11 0 0Z' fill='%231E3F20'/%3E%3Cpath d='M2 0H34' stroke='white' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate%2845 160%29 rotate%28-150%29 scale%280.9%29'%3E%3Cpath d='M0 0C9-11 27-12 38 0C27 12 9 11 0 0Z' fill='%231E3F20'/%3E%3Cpath d='M2 0H34' stroke='white' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate%2858 128%29 rotate%28-55%29 scale%280.95%29'%3E%3Cpath d='M0 0C9-11 27-12 38 0C27 12 9 11 0 0Z' fill='%231E3F20'/%3E%3Cpath d='M2 0H34' stroke='white' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate%2880 80%29 rotate%28-160%29 scale%280.85%29'%3E%3Cpath d='M0 0C9-11 27-12 38 0C27 12 9 11 0 0Z' fill='%231E3F20'/%3E%3Cpath d='M2 0H34' stroke='white' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate%28105 45%29 rotate%28-40%29 scale%280.9%29'%3E%3Cpath d='M0 0C9-11 27-12 38 0C27 12 9 11 0 0Z' fill='%231E3F20'/%3E%3Cpath d='M2 0H34' stroke='white' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate%28135 20%29 rotate%28-150%29 scale%280.8%29'%3E%3Cpath d='M0 0C9-11 27-12 38 0C27 12 9 11 0 0Z' fill='%231E3F20'/%3E%3Cpath d='M2 0H34' stroke='white' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate%28140 125%29 rotate%2840%29 scale%280.8%29'%3E%3Cpath d='M0 0C9-11 27-12 38 0C27 12 9 11 0 0Z' fill='%231E3F20'/%3E%3Cpath d='M2 0H34' stroke='white' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate%28110 100%29 rotate%28-20%29 scale%280.7%29'%3E%3Cpath d='M0 0C9-11 27-12 38 0C27 12 9 11 0 0Z' fill='%231E3F20'/%3E%3Cpath d='M2 0H34' stroke='white' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate%2810 150%29 rotate%28200%29 scale%280.75%29'%3E%3Cpath d='M0 0C9-11 27-12 38 0C27 12 9 11 0 0Z' fill='%231E3F20'/%3E%3Cpath d='M2 0H34' stroke='white' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Ccircle cx='170' cy='5' r='4' fill='%23b8902a'/%3E%3Ccircle cx='140' cy='125' r='3' fill='%23b8902a'/%3E%3C/svg%3E"); --leaf-tile: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140'%3E%3Cg transform='translate%2820 30%29 rotate%28-35%29 scale%280.55%29'%3E%3Cpath d='M0 0C9-11 27-12 38 0C27 12 9 11 0 0Z' fill='%231E3F20'/%3E%3Cpath d='M2 0H34' stroke='white' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate%2895 20%29 rotate%2830%29 scale%280.45%29'%3E%3Cpath d='M0 0C9-11 27-12 38 0C27 12 9 11 0 0Z' fill='%231E3F20'/%3E%3Cpath d='M2 0H34' stroke='white' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate%2870 90%29 rotate%28-120%29 scale%280.55%29'%3E%3Cpath d='M0 0C9-11 27-12 38 0C27 12 9 11 0 0Z' fill='%231E3F20'/%3E%3Cpath d='M2 0H34' stroke='white' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate%2815 115%29 rotate%2815%29 scale%280.4%29'%3E%3Cpath d='M0 0C9-11 27-12 38 0C27 12 9 11 0 0Z' fill='%231E3F20'/%3E%3Cpath d='M2 0H34' stroke='white' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Cg transform='translate%28115 110%29 rotate%28-70%29 scale%280.45%29'%3E%3Cpath d='M0 0C9-11 27-12 38 0C27 12 9 11 0 0Z' fill='%231E3F20'/%3E%3Cpath d='M2 0H34' stroke='white' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/g%3E%3Ccircle cx='60' cy='45' r='1.6' fill='%23b8902a'/%3E%3Ccircle cx='120' cy='65' r='1.6' fill='%23b8902a'/%3E%3C/svg%3E"); }
+
+/* whole card: one light premium colour + faint leaf pattern */
+.shell.glass {
+    background:
+        radial-gradient(circle at 50% 0%, rgba(212, 175, 55, .10), transparent 45%),
+        linear-gradient(160deg, #fdfaf2 0%, #f7f4ea 50%, #eef6ee 100%);
+}
+.shell::after {
+    content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background-image: var(--leaf-tile); background-size: 150px 150px; opacity: .07;
+}
+/* vine ornaments in the corners */
+.brand-panel::before, .verify-panel::after {
+    content: ''; position: absolute; width: 190px; height: 190px; pointer-events: none; z-index: 0;
+    background: var(--vine) no-repeat center / contain; opacity: .16;
+}
+.brand-panel::before { top: -8px; left: -8px; }
+.verify-panel::after { bottom: -8px; right: -8px; transform: rotate(180deg); }
+.brand-panel > *, .verify-panel > *, .info-panel > * { position: relative; z-index: 1; }
+
+.brand-panel, .info-panel, .verify-panel { background: transparent !important; }
+.brand-panel { border-bottom: 1px dashed rgba(184, 144, 42, .35); }
+.info-panel { border-top: 1px dashed rgba(184, 144, 42, .35); }
+@media screen and (min-width: 993px) {
+    .brand-panel, .info-panel { border-right: 0; border-bottom: 0; }
+    .verify-panel { border-left: 1px dashed rgba(184, 144, 42, .4); }
+}
+
+/* gold ornamental divider under the verify title */
+.verify-panel .subtitle { position: relative; padding-bottom: 14px; }
+.verify-panel .subtitle::after {
+    content: '❦'; position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%);
+    font-size: 16px; color: #b8902a; padding: 0 10px;
+    background: linear-gradient(90deg, transparent, #f8f5ec 30%, #f8f5ec 70%, transparent);
+}
+
+/* verify icon: gold coin + green shield */
+.verify-panel .verify-icon { color: #fff; background: radial-gradient(circle at 35% 30%, #1d6a3a, #0a3a1c 75%); box-shadow: 0 0 0 3px #f6e7a8, 0 0 0 4.5px #c9a227, 0 10px 24px rgba(10, 58, 28, .3); }
+.verify-panel .pulse-ring { border-color: #c9a227; }
+
+/* input: white with gold edge */
+.verify-panel .input-area input { background: #fffdf7; border-color: rgba(184, 144, 42, .45); }
+.verify-panel .input-area input:focus { border-color: #059669; box-shadow: 0 0 0 4px rgba(16, 185, 129, .15); }
+.verify-panel .input-icon { color: #b8902a; }
+
+/* button: green section with a gold rim */
+.verify-panel .btn-primary { border: 1.5px solid #d4af37; box-shadow: 0 10px 24px rgba(6, 44, 20, .28), inset 0 1px 0 rgba(255, 255, 255, .15); }
+
+/* contact box = green section */
+.verify-panel .contact-box {
+    position: relative; overflow: hidden;
+    border: 1.5px solid #c9a227;
+    background:
+        radial-gradient(circle at 100% 0%, rgba(212, 175, 55, .22), transparent 40%),
+        linear-gradient(150deg, #0f4d25, #062c14);
+    box-shadow: 0 12px 28px rgba(6, 44, 20, .22);
+}
+.verify-panel .contact-box::before {
+    content: ''; position: absolute; right: -20px; bottom: -30px; width: 150px; height: 150px; pointer-events: none;
+    background: var(--vine) no-repeat center / contain; filter: brightness(0) invert(1); opacity: .07; transform: rotate(180deg);
+}
+.verify-panel .contact-box > * { position: relative; }
+.verify-panel .contact-header { color: #e9c552; }
+.verify-panel .contact-header::after { background: linear-gradient(90deg, rgba(212, 175, 55, .6), transparent); }
+.verify-panel .contact-item { color: #f3efe2; background: rgba(255, 255, 255, .06); border-color: rgba(212, 175, 55, .3); }
+.verify-panel .contact-item:hover, .verify-panel .contact-item:focus-visible { background: rgba(212, 175, 55, .14); border-color: #e9c552; }
+.verify-panel .contact-item .c-ico { color: #0a3a1c; background: radial-gradient(circle at 35% 30%, #fff3c4, #d4af37 70%); }
+.verify-panel .contact-address { color: #d6e5d9; border-top-color: rgba(212, 175, 55, .3); }
+.verify-panel .contact-address .ico { color: #e9c552; }
+
+/* email: its own full-width row so it is never cut off */
+.contact-grid > .contact-item.full { grid-column: 1 / -1; justify-content: center; }
+.contact-item.full span.t { overflow: visible; white-space: normal; word-break: break-all; }
+
+/* back button: green text, gold rim */
+.verify-panel .btn-outline { color: var(--green); background: rgba(255, 253, 247, .8); border-color: rgba(184, 144, 42, .55); }
+.verify-panel .btn-outline:hover, .verify-panel .btn-outline:focus-visible { background: #fffaf0; border-color: #c9a227; }
+.verify-panel .footer { color: #a08a4e; border-top-color: rgba(184, 144, 42, .25); }
+
+/* stats tiles: ivory with gold rim instead of plain white */
+.stat { background: #fffdf7; border-color: rgba(184, 144, 42, .35); }
+
+/* "১০০%" highlight — easier to read */
+.pct {
+    display: inline-block; padding: 0 6px; margin: 0 1px; border-radius: 6px;
+    font-weight: 800; font-size: 1.06em; letter-spacing: .6px; line-height: 1.35;
+    color: #0a3a1c; background: rgba(16, 185, 129, .16);
+}
+.member-popup .pct, .member-teaser .pct, .auth-card .pct { color: #1f2a12; background: linear-gradient(135deg, #f6e7a8, #e0bb4a); }
+.btn-primary .pct, .stat .pct { padding: 0; background: none; color: inherit; font-size: inherit; }
+.auth-foot .pct { padding: 0; background: none; color: inherit; font-size: inherit; letter-spacing: inherit; }
+/* phones: let contact text wrap instead of being cut ("sushoma.c…") */
+@media screen and (max-width: 576px) {
+    .contact-item { padding: 9px 10px; gap: 8px; }
+    .contact-item span.t { overflow: visible; white-space: normal; word-break: break-word; font-size: 12.5px; }
+}
+/* mobile: email box left-aligned like the other contact items */
+@media screen and (max-width: 576px) {
+    .contact-grid > .contact-item.full { justify-content: flex-start; }
+}
