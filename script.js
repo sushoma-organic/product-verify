@@ -26,7 +26,7 @@ const CONFIG = {
     },
 
     SITE_URL: "https://sushoma.com",       // "Back to main website" button goes here
-    VERIFY_PAGE_URL: "https://sushoma-organic.github.io/product-verify/",                   // link shared with the message. Empty = this page's own URL
+    VERIFY_PAGE_URL: "https://verify.sushoma.com/",                   // link shared with the message. Empty = this page's own URL
 
     CONTACT: {
         website: "https://sushoma.com",
@@ -160,7 +160,29 @@ const I18N = {
         memberOfferBig: "৫০%",
         memberOfferBottom: "ডিসকাউন্ট",
         memberRulesTitle: "কার্ডের নিয়মাবলী",
-        memberWa: "ডিসকাউন্ট পেতে সরাসরি WhatsApp করুন"
+        memberWa: "ডিসকাউন্ট পেতে সরাসরি WhatsApp করুন",
+        faqKicker: "সচরাচর জিজ্ঞাসা",
+        faqTitle: "সুষমা পণ্য যাচাই — আপনার প্রশ্ন, আমাদের উত্তর",
+        faqQ1: "সুষমা হেয়ার অয়েল আসল কি না কীভাবে বুঝবো?",
+        faqA1: "বোতল বা প্যাকেটের লেবেলে থাকা প্রোডাক্ট আইডি (XX-XX-XXXX) এই পেজের বক্সে লিখে “সত্যতা যাচাই করুন” চাপুন। আইডি আমাদের অফিসিয়াল ডাটাবেজে মিললে পণ্যের নাম, ব্যাচ নং, উৎপাদন ও মেয়াদের তারিখসহ “আসল ও পরীক্ষিত পণ্য” দেখাবে।",
+        faqQ2: "প্রোডাক্ট আইডি কোথায় পাবো?",
+        faqA2: "প্রতিটি আসল সুষমা পণ্যের সাথে দেওয়া মেম্বারশিপ কার্ডের নিচের “PRODUCT ID” বক্সে এবং লেবেলে ৮ অক্ষরের আইডি থাকে। ড্যাশ (-) ছাড়া লিখলেও চলবে।",
+        faqQ3: "QR কোড স্ক্যান করেও কি যাচাই করা যায়?",
+        faqA3: "হ্যাঁ। কার্ডের QR কোড ফোনের ক্যামেরা দিয়ে স্ক্যান করলে এই পেজ খুলবে এবং আইডি নিজে থেকে বসে ফলাফল দেখাবে।",
+        faqQ4: "আইডি না মিললে কী করবো?",
+        faqA4: "পণ্যটি ব্যবহার করবেন না। সাথে সাথে আমাদের হটলাইন 01911199262 নম্বরে কল বা WhatsApp করুন, অথবা care@sushoma.com এ ইমেইল করুন।",
+        faqQ5: "সুষমা হেয়ার অয়েল কি বিএসটিআই মানোত্তীর্ণ?",
+        faqA5: "হ্যাঁ। সুষমা অর্গানিক হেয়ার অয়েল বিএসটিআই (BSTI) মানোত্তীর্ণ এবং ১০০% প্রাকৃতিক ও কেমিক্যাল মুক্ত উপাদানে তৈরি।",
+        faqQ6: "সুষমা হেয়ার অয়েলে কী কী উপাদান আছে?",
+        faqA6: "নারিকেল, তিল, কালোজিরা ও অলিভসহ ৮ প্রকার তেল এবং ভৃঙ্গরাজ, আমলকি, মেথি, রোজমেরি, পেঁয়াজ, জবা ফুল ও নিম পাতাসহ ৪৪টি ভেষজ ও প্রাকৃতিক উপাদান। চুল পড়া, খুশকি ও আগা ফাটা নিয়ন্ত্রণে সহায়ক।",
+        faqQ7: "আসল সুষমা পণ্য কোথা থেকে কিনবো?",
+        faqA7: "নকল এড়াতে শুধু অফিসিয়াল ওয়েবসাইট sushoma.com বা আমাদের অফিসিয়াল ফেসবুক পেজ থেকে অর্ডার করুন। সারা বাংলাদেশে ক্যাশ অন ডেলিভারি সুবিধা আছে।",
+        aboutTitle: "SUSHOMA (সুষমা) সম্পর্কে",
+        aboutText: "সুষমা অর্গানিক হেয়ার অয়েল ৮ প্রকার তেল ও ৪৪টি ভেষজ উপাদানে তৈরি বিএসটিআই মানোত্তীর্ণ হারবাল হেয়ার অয়েল — চুল পড়া, খুশকি, আগা ফাটা ও চুল ভাঙা নিয়ন্ত্রণে সহায়ক। প্রতিটি আসল বোতলের সাথে থাকে একটি ইউনিক প্রোডাক্ট আইডি, যা দিয়ে এই পেজে সহজেই যাচাই করা যায়।",
+        aboutLink: "অফিসিয়াল ওয়েবসাইটে অর্ডার করুন",
+        tp1: "অর্গানিক হেয়ার অয়েল", tp2: "হার্বাল শ্যাম্পু", tp3: "খুশকি দূর করার তেল", tp4: "চুল পড়া বন্ধ করার তেল", tp5: "চুল গজানোর তেল", tp6: "প্রাকৃতিক চুলের যত্ন",
+        footAddress: "ইছাকাঠি, কাশিপুর, বরিশাল-৮২০০, বাংলাদেশ",
+        footCopy: "© ২০২৬ SUSHOMA (সুষমা) — চুলের যত্নে প্রকৃতির ছোঁয়া। সর্বস্বত্ব সংরক্ষিত।"
     },
     en: {
         back: "Main Website",
@@ -238,7 +260,29 @@ const I18N = {
         memberOfferBig: "50%",
         memberOfferBottom: "Discount",
         memberRulesTitle: "Card Rules",
-        memberWa: "WhatsApp us directly for your discount"
+        memberWa: "WhatsApp us directly for your discount",
+        faqKicker: "FAQ",
+        faqTitle: "SUSHOMA product verification — your questions answered",
+        faqQ1: "How do I know my SUSHOMA hair oil is genuine?",
+        faqA1: "Type the Product ID (XX-XX-XXXX) from the bottle or box label into the box on this page and tap “Verify Authenticity”. If it matches our official database you will see “Authentic & Genuine” with the product name, batch no, MFG and EXP dates.",
+        faqQ2: "Where do I find the Product ID?",
+        faqA2: "Every genuine SUSHOMA product comes with a membership card — the 8-character ID is in its “PRODUCT ID” box and on the label. You can type it without dashes.",
+        faqQ3: "Can I verify by scanning the QR code?",
+        faqA3: "Yes. Scan the QR code on the card with your phone camera — this page opens, fills in the ID and shows the result automatically.",
+        faqQ4: "What if the ID doesn't match?",
+        faqA4: "Do not use the product. Call or WhatsApp our hotline 01911199262 right away, or email care@sushoma.com.",
+        faqQ5: "Is SUSHOMA hair oil BSTI certified?",
+        faqA5: "Yes. SUSHOMA Organic Hair Oil is BSTI certified and made with 100% natural, chemical-free ingredients.",
+        faqQ6: "What is in SUSHOMA hair oil?",
+        faqA6: "A blend of 8 oils including coconut, sesame, black seed and olive, with 44 herbal and natural ingredients such as bhringraj, amla, fenugreek, rosemary, onion, hibiscus and neem — helps control hair fall, dandruff and split ends.",
+        faqQ7: "Where can I buy genuine SUSHOMA products?",
+        faqA7: "To avoid fakes, order only from the official website sushoma.com or our official Facebook page. Cash on delivery is available all over Bangladesh.",
+        aboutTitle: "About SUSHOMA",
+        aboutText: "SUSHOMA Organic Hair Oil is a BSTI-certified herbal hair oil made from 8 oils and 44 herbal ingredients — it helps control hair fall, dandruff, split ends and breakage. Every genuine bottle carries a unique Product ID you can check on this page.",
+        aboutLink: "Order from the official website",
+        tp1: "Organic hair oil", tp2: "Herbal shampoo", tp3: "Anti-dandruff hair oil", tp4: "Hair fall control oil", tp5: "Hair growth oil", tp6: "Natural hair care",
+        footAddress: "Ichakathi, Kashipur, Barishal-8200, Bangladesh",
+        footCopy: "© 2026 SUSHOMA — Nature's Touch for Healthy Hair. All rights reserved."
     }
 };
 

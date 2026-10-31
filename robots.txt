@@ -1,4 +1,5 @@
+# SUSHOMA product verification — https://verify.sushoma.com/
 User-agent: *
 Allow: /
 
-Sitemap: https://sushoma-organic.github.io/product-verify/sitemap.xml
+Sitemap: https://verify.sushoma.com/sitemap.xml
