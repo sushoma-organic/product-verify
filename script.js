@@ -45,6 +45,8 @@ const CONFIG = {
     // with or without dashes — it is formatted automatically before lookup.
     ID_GROUPS: [2, 2, 4],
     MASK_MOBILE: true,        // true = hide the middle 2 digits: 01712-XX-5678
+    SHOW_VERIFY_COUNT: true,  // show how many times this Product ID has been searched
+    VERIFY_WARN_AT: 5,        // from this many searches, show a "possible copied ID" caution
 
     // Membership card policy (corner button on the main page). Edit rules here;
     // text inside <b>…</b> is highlighted.
@@ -138,6 +140,12 @@ const I18N = {
         infoBatch: "ব্যাচ নং",
         infoMfg: "উৎপাদন তারিখ",
         infoExp: "মেয়াদোত্তীর্ণ",
+        infoCount: "মোট যাচাই",
+        infoFirst: "প্রথম যাচাই",
+        countTimes: "{n} বার",
+        countNoteFirst: "✅ এই আইডিটি প্রথমবার যাচাই করা হলো।",
+        countNote: "এই প্রোডাক্ট আইডিটি এ পর্যন্ত {n} বার যাচাই করা হয়েছে।",
+        countWarn: "⚠️ এই আইডিটি অনেকবার ({n} বার) যাচাই করা হয়েছে। আপনি যদি নতুন পণ্য কিনে প্রথমবার যাচাই করে থাকেন, তাহলে আইডিটি কপি করা হতে পারে — অনুগ্রহ করে আমাদের হটলাইনে জানান।",
 
         shareTitle: "বন্ধুদের সাথে শেয়ার করুন",
         shareCopy: "মেসেজ কপি",
@@ -177,6 +185,8 @@ const I18N = {
         faqA6: "নারিকেল, তিল, কালোজিরা ও অলিভসহ ৮ প্রকার তেল এবং ভৃঙ্গরাজ, আমলকি, মেথি, রোজমেরি, পেঁয়াজ, জবা ফুল ও নিম পাতাসহ ৪৪টি ভেষজ ও প্রাকৃতিক উপাদান। চুল পড়া, খুশকি ও আগা ফাটা নিয়ন্ত্রণে সহায়ক।",
         faqQ7: "আসল সুষমা পণ্য কোথা থেকে কিনবো?",
         faqA7: "নকল এড়াতে শুধু অফিসিয়াল ওয়েবসাইট sushoma.com বা আমাদের অফিসিয়াল ফেসবুক পেজ থেকে অর্ডার করুন। সারা বাংলাদেশে ক্যাশ অন ডেলিভারি সুবিধা আছে।",
+        faqQ8: "সুষমা হেয়ার অয়েল ব্যবহারের সঠিক নিয়ম কী?",
+        faqA8: "ব্যবহারের আগে বোতলটি ভালোভাবে ঝাঁকিয়ে নিন। হালকা কুসুম গরম তেল আঙুলের ডগা দিয়ে চুলের গোড়ায় ৫–১০ মিনিট ম্যাসাজ করে পুরো চুলে লাগান। কমপক্ষে ২ ঘণ্টা বা সারারাত রেখে শ্যাম্পু করে ধুয়ে ফেলুন। সপ্তাহে ৩–৪ দিন ব্যবহার করুন।",
         aboutTitle: "SUSHOMA (সুষমা) সম্পর্কে",
         aboutText: "সুষমা অর্গানিক হেয়ার অয়েল ৮ প্রকার তেল ও ৪৪টি ভেষজ উপাদানে তৈরি বিএসটিআই মানোত্তীর্ণ হারবাল হেয়ার অয়েল — চুল পড়া, খুশকি, আগা ফাটা ও চুল ভাঙা নিয়ন্ত্রণে সহায়ক। প্রতিটি আসল বোতলের সাথে থাকে একটি ইউনিক প্রোডাক্ট আইডি, যা দিয়ে এই পেজে সহজেই যাচাই করা যায়।",
         aboutLink: "অফিসিয়াল ওয়েবসাইটে অর্ডার করুন",
@@ -238,6 +248,12 @@ const I18N = {
         infoBatch: "Batch No",
         infoMfg: "MFG Date",
         infoExp: "EXP Date",
+        infoCount: "Total checks",
+        infoFirst: "First checked",
+        countTimes: "{n} times",
+        countNoteFirst: "✅ This is the first time this ID has been checked.",
+        countNote: "This Product ID has been checked {n} times so far.",
+        countWarn: "⚠️ This ID has been checked many times ({n}). If you just bought a new product and are checking for the first time, the ID may have been copied — please contact our hotline.",
 
         shareTitle: "Share with your circle",
         shareCopy: "Copy message",
@@ -277,6 +293,8 @@ const I18N = {
         faqA6: "A blend of 8 oils including coconut, sesame, black seed and olive, with 44 herbal and natural ingredients such as bhringraj, amla, fenugreek, rosemary, onion, hibiscus and neem — helps control hair fall, dandruff and split ends.",
         faqQ7: "Where can I buy genuine SUSHOMA products?",
         faqA7: "To avoid fakes, order only from the official website sushoma.com or our official Facebook page. Cash on delivery is available all over Bangladesh.",
+        faqQ8: "How should I use SUSHOMA hair oil?",
+        faqA8: "Shake the bottle well before use. Massage lukewarm oil into the hair roots with your fingertips for 5\u201310 minutes, then apply it through the hair. Leave it for at least 2 hours or overnight, then wash with shampoo. Use 3\u20134 days a week.",
         aboutTitle: "About SUSHOMA",
         aboutText: "SUSHOMA Organic Hair Oil is a BSTI-certified herbal hair oil made from 8 oils and 44 herbal ingredients — it helps control hair fall, dandruff, split ends and breakage. Every genuine bottle carries a unique Product ID you can check on this page.",
         aboutLink: "Order from the official website",
@@ -339,6 +357,16 @@ function readInfo(d) {
 }
 const hostOf = (url) => String(url).replace(/^https?:\/\//, "").replace(/\/$/, "");
 const shareUrl = () => CONFIG.VERIFY_PAGE_URL || location.href.split(/[?#]/)[0];
+
+function fmtDateTime(v) {
+    const s = String(v || "");
+    if (!s) return "—";
+    const d = new Date(s.replace(" ", "T"));
+    if (isNaN(d)) return s;
+    const L = state.lang === "bn" ? "bn-BD" : "en-GB";
+    return d.toLocaleDateString(L, { day: "2-digit", month: "short", year: "numeric" }) + ", " +
+        d.toLocaleTimeString(L, { hour: "numeric", minute: "2-digit" });
+}
 
 function fmtDate(v) {
     if (v === null || v === undefined || v === "") return "—";
@@ -562,7 +590,8 @@ function renderPopup() {
             ["infoBatch", d.batch_no],
             ["infoMfg", fmtDate(d.mfg_date)],
             ["infoExp", fmtDate(d.exp_date)]
-        ].map(([k, v]) => `<div class="info-row"><span class="info-label">${t(k)}</span><span class="info-value">${esc(v === "" || v == null ? "—" : v)}</span></div>`).join("");
+        ].map(([k, v]) => `<div class="info-row"><span class="info-label">${t(k)}</span><span class="info-value">${esc(v === "" || v == null ? "—" : v)}</span></div>`).join("")
+            + countBlock(d);
 
         els.failContact.hidden = true;
         els.shareSection.hidden = false;
@@ -597,6 +626,21 @@ function verifyAnother() {
     els.input.value = "";
     state.result = null;
     setTimeout(() => els.input.focus(), 250);
+}
+
+/* ---------- how many times this ID was searched ---------- */
+function countBlock(d) {
+    const n = parseInt(d.verify_count, 10);
+    if (!CONFIG.SHOW_VERIFY_COUNT || !n) return "";
+    const N = num(n);
+    const rows =
+        `<div class="info-row count-row"><span class="info-label">${t("infoCount")}</span><span class="info-value"><b class="count-pill">${esc(t("countTimes").replace("{n}", N))}</b></span></div>` +
+        (d.first_verified ? `<div class="info-row"><span class="info-label">${t("infoFirst")}</span><span class="info-value">${esc(fmtDateTime(d.first_verified))}</span></div>` : "");
+    let note;
+    if (n >= CONFIG.VERIFY_WARN_AT) note = `<div class="count-note warn">${esc(t("countWarn").replace("{n}", N))}</div>`;
+    else if (n === 1) note = `<div class="count-note first">${esc(t("countNoteFirst"))}</div>`;
+    else note = `<div class="count-note">${esc(t("countNote").replace("{n}", N))}</div>`;
+    return rows + note;
 }
 
 /* ---------- sharing ---------- */
@@ -701,6 +745,27 @@ function closeMember() {
     return true;
 }
 
+/* ---------- FAQ accordion: one answer open at a time, click outside closes ---------- */
+function initFaq() {
+    const items = Array.from(document.querySelectorAll(".faq-item"));
+    if (!items.length) return;
+    items.forEach((d) => {
+        // close the others right away when a question is clicked
+        d.querySelector("summary").addEventListener("click", () => {
+            items.forEach((o) => { if (o !== d) o.open = false; });
+        });
+        d.addEventListener("toggle", () => {
+            if (d.open) items.forEach((o) => { if (o !== d) o.open = false; });
+        });
+    });
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest(".faq-item")) items.forEach((d) => { d.open = false; });
+    });
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") items.forEach((d) => { d.open = false; });
+    });
+}
+
 /* ---------- ambient particles ---------- */
 function spawnDust() {
     const box = $("dust");
@@ -720,6 +785,7 @@ function init() {
     document.querySelectorAll("[data-site-link]").forEach((a) => { a.href = CONFIG.SITE_URL; });
     spawnDust();
     applyLanguage();
+    initFaq();
 
     els.form.addEventListener("submit", (e) => { e.preventDefault(); verifyProduct(); });
     els.input.addEventListener("input", () => {

@@ -894,3 +894,46 @@ html[lang="bn"] .member-kicker, html[lang="bn"] .member-rules-title { letter-spa
 .topic-chips { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 14px auto 0; max-width: 760px; }
 .topic-chips li { padding: 5px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; color: #f6e7a8; background: rgba(255, 255, 255, .06); border: 1px solid rgba(212, 175, 55, .45); }
 .about-en { margin-top: 12px !important; font-size: 13px !important; color: #c9d8cc !important; font-style: italic; }
+
+/* ==========================================================================
+   12. ORGANIC INGREDIENTS BACKGROUND — 52 real SUSHOMA ingredients
+       (8 oils + 44 herbs), tiled across the whole page
+   ========================================================================== */
+.bg-layer::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("ingredients-bg.webp") repeat 0 0 / 1170px auto;
+    opacity: .30;
+}
+.grid-lines { display: none; }
+/* same pattern, very faint, inside the main card */
+.shell::after { background-image: url("ingredients-bg.webp"); background-size: 1170px auto; opacity: .06; }
+/* a soft ivory glow behind the FAQ so the cards stay easy to read */
+.seo-section::before {
+    content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background: radial-gradient(ellipse at 50% 40%, rgba(250, 247, 242, .85), rgba(250, 247, 242, .35) 70%, transparent);
+}
+.faq-item summary { user-select: none; -webkit-tap-highlight-color: transparent; }
+.faq-item p { animation: faqIn .28s ease; }
+@keyframes faqIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+@media screen and (max-width: 576px) {
+    .bg-layer::before { background-size: 820px auto; opacity: .26; }
+}
+
+/* 12b. background clearly visible on both phone and desktop, with the vine feel */
+.bg-layer::before { opacity: .42; background-size: 1170px auto; }
+.shell::after { opacity: .10; background-size: 1000px auto; }
+.brand-panel::before, .verify-panel::after { opacity: .22; }
+@media screen and (max-width: 576px) {
+    .bg-layer::before { opacity: .40; background-size: 760px auto; }
+    .shell::after { opacity: .13; background-size: 640px auto; }
+    .brand-panel::before, .verify-panel::after { width: 150px; height: 150px; opacity: .24; }
+}
+
+/* search counter in the result popup */
+.count-row .info-value { color: var(--green); }
+.count-pill { display: inline-block; padding: 2px 12px; border-radius: 999px; font-weight: 800; color: #1f2a12; background: linear-gradient(135deg, #f6e7a8, #e0bb4a); }
+.count-note { margin: 4px 0 10px; padding: 9px 12px; border-radius: 12px; font-size: calc(var(--fs-info) - 1px); line-height: 1.55; text-align: left; color: #1E3F20; background: rgba(16, 185, 129, .10); border: 1px solid rgba(16, 185, 129, .3); }
+.count-note.first { background: rgba(16, 185, 129, .14); }
+.count-note.warn { color: #78350f; background: linear-gradient(90deg, #fffbeb, #fff7ed); border-color: #fcd34d; }
+/* let the ingredients show around the FAQ on every screen */
+.seo-section::before { background: radial-gradient(ellipse at 50% 40%, rgba(250, 247, 242, .55), rgba(250, 247, 242, .15) 70%, transparent); }
