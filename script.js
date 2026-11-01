@@ -817,9 +817,26 @@ function init() {
     initFaq();
 
     els.form.addEventListener("submit", (e) => { e.preventDefault(); verifyProduct(); });
-    // Typing: leave the field alone so the phone keyboard (language switch,
-    // long-press space, Bangla/English IME) works normally. Format only when done.
-    els.input.addEventListener("input", () => setFieldError(""));
+    // Auto-hyphen while typing (AB-12-CD34), but ONLY right after a letter/number
+    // is typed at the end. Space, backspace, language switch (long-press space)
+    // and Bangla/English IME composition are left alone, so the keyboard works normally.
+    let composing = false;
+    els.input.addEventListener("compositionstart", () => { composing = true; });
+    els.input.addEventListener("compositionend", () => { composing = false; autoHyphen(); });
+    els.input.addEventListener("input", (e) => {
+        setFieldError("");
+        if (composing || e.isComposing) return;
+        if (e.inputType && e.inputType !== "insertText" && e.inputType !== "insertFromPaste") return;
+        if (e.data != null && !/^[A-Za-z0-9০-৯]+$/.test(e.data)) return;
+        autoHyphen();
+    });
+    function autoHyphen() {
+        const el = els.input, v = el.value;
+        if (el.selectionStart !== v.length) return;      // only when typing at the end
+        if (/[^A-Za-z0-9০-৯-]/.test(v)) return;          // user typed a space/other — leave it
+        const f = formatId(v);
+        if (f !== v) { el.value = f; try { el.setSelectionRange(f.length, f.length); } catch (x) { /* ignore */ } }
+    }
     els.input.addEventListener("blur", () => {
         const f = formatId(els.input.value);
         if (f && els.input.value !== f) els.input.value = f;
