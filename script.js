@@ -122,7 +122,8 @@ const I18N = {
         errEmpty: "অনুগ্রহ করে আপনার প্রোডাক্ট আইডি লিখুন।",
         errFormat: "সঠিক ফরম্যাটে আইডি লিখুন: XX-XX-XXXX (মোট ৮টি অক্ষর/সংখ্যা)",
 
-        okTitle: "আসল ও পরীক্ষিত পণ্য",
+        okCongrats: "অভিনন্দন!",
+        okTitle: "আসল ও পরীক্ষিত পণ্য।",
         okMsg: "<strong>আপনার যাচাইকৃত পণ্যটি SUSHOMA-এর ১০০% আসল ও বিশুদ্ধ পণ্য।</strong><br>আমাদের অফিসিয়াল ডাটাবেজ দ্বারা এটি সফলভাবে ভেরিফাই করা হয়েছে। 🌿",
         notVerTitle: "পণ্যটি যাচাই করা যায়নি",
         notVerMsg: "উক্ত পণ্যটির Authentic status নিশ্চিত করা যায়নি।",
@@ -232,7 +233,8 @@ const I18N = {
         errEmpty: "Please enter your Product ID.",
         errFormat: "Enter the ID as XX-XX-XXXX (8 letters/numbers in total).",
 
-        okTitle: "Authentic & Genuine",
+        okCongrats: "Congratulations!",
+        okTitle: "Authentic & Genuine.",
         okMsg: "<strong>Your item is an official, 100% genuine SUSHOMA product.</strong><br>Successfully verified through our official database. 🌿",
         notVerTitle: "Product Not Verified",
         notVerMsg: "The authentic status of this product could not be confirmed.",
@@ -578,7 +580,12 @@ function renderPopup() {
 
     const titles = { success: "okTitle", notVerified: "notVerTitle", notFound: "notFoundTitle", error: "errTitle" };
     const msgs = { success: "okMsg", notVerified: "notVerMsg", notFound: "notFoundMsg", error: "errMsg" };
-    els.popupTitle.textContent = t(titles[r.kind]);
+    // success: "অভিনন্দন! আসল ও পরীক্ষিত পণ্য।" as one heading
+    els.popupTitle.innerHTML = ok
+        ? `<span class="congrats-word">${esc(t("okCongrats"))}</span> ${esc(t(titles[r.kind]))}`
+        : esc(t(titles[r.kind]));
+    const cg = $("popupCongrats");
+    if (cg) cg.hidden = true;
     els.popupMessage.innerHTML = pct(ok ? t("okMsg") : `${t(msgs[r.kind])}<br><br>${t("failAdvice")}`);
 
     if (ok) {

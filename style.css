@@ -939,3 +939,15 @@ html[lang="bn"] .member-kicker, html[lang="bn"] .member-rules-title { letter-spa
 .seo-section::before { background: radial-gradient(ellipse at 50% 40%, rgba(250, 247, 242, .55), rgba(250, 247, 242, .15) 70%, transparent); }
 /* first FAQ (why the oil is thick) spans the full width on desktop */
 @media screen and (min-width: 993px) { .faq-list .faq-wide { grid-column: 1 / -1; } }
+
+/* "অভিনন্দন!" line above the success title */
+.popup-congrats {
+    display: inline-block; margin: 0 auto 8px; padding: 6px 16px; border-radius: 999px;
+    font-size: calc(var(--fs-popup-text) + 1px); font-weight: 700; line-height: 1.45; color: #1f2a12;
+    background: linear-gradient(135deg, #f6e7a8, #e0bb4a 55%, #c9a227);
+    box-shadow: 0 6px 16px rgba(184, 134, 11, .28);
+    animation: congratsIn .5s cubic-bezier(.2, .9, .3, 1.2) both;
+}
+@keyframes congratsIn { from { opacity: 0; transform: scale(.85); } to { opacity: 1; transform: none; } }
+
+.congrats-word { color: #b8860b; background: linear-gradient(180deg, #d4a017, #a8790a); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
