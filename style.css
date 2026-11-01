@@ -937,3 +937,5 @@ html[lang="bn"] .member-kicker, html[lang="bn"] .member-rules-title { letter-spa
 .count-note.warn { color: #78350f; background: linear-gradient(90deg, #fffbeb, #fff7ed); border-color: #fcd34d; }
 /* let the ingredients show around the FAQ on every screen */
 .seo-section::before { background: radial-gradient(ellipse at 50% 40%, rgba(250, 247, 242, .55), rgba(250, 247, 242, .15) 70%, transparent); }
+/* first FAQ (why the oil is thick) spans the full width on desktop */
+@media screen and (min-width: 993px) { .faq-list .faq-wide { grid-column: 1 / -1; } }
