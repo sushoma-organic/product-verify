@@ -951,3 +951,55 @@ html[lang="bn"] .member-kicker, html[lang="bn"] .member-rules-title { letter-spa
 @keyframes congratsIn { from { opacity: 0; transform: scale(.85); } to { opacity: 1; transform: none; } }
 
 .congrats-word { color: #b8860b; background: linear-gradient(180deg, #d4a017, #a8790a); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+/* ==========================================================================
+   13. SUCCESS POPUP — big gold "অভিনন্দন!" + emerald "100% genuine" box,
+       each with its own premium glow / shimmer
+   ========================================================================== */
+.popup h2 .congrats-big {
+    position: relative; display: block; margin: 2px auto 2px; width: max-content; max-width: 100%;
+    font-size: clamp(40px, 11vw, 64px); font-weight: 800; line-height: 1.25; letter-spacing: .5px;
+    background: linear-gradient(110deg, #7a4f00 0%, #b8860b 25%, #f0c94e 42%, #c9a227 55%, #8a5a00 72%, #d4a017 88%, #7a4f00 100%);
+    background-size: 250% 100%;
+    -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
+    animation: goldShine 2.6s linear infinite, goldPulse 1.8s ease-in-out infinite;
+}
+.popup h2 .congrats-big::after {          /* soft gold halo that breathes */
+    content: ''; position: absolute; inset: 18% -14%; z-index: -1; border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(240, 201, 78, .45), transparent 70%);
+    filter: blur(10px); animation: haloPulse 1.8s ease-in-out infinite;
+}
+@keyframes goldShine { from { background-position: 100% 0; } to { background-position: -150% 0; } }
+@keyframes goldPulse {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 2px 6px rgba(184, 134, 11, .35)); }
+    50% { transform: scale(1.06); filter: drop-shadow(0 0 18px rgba(240, 201, 78, .85)); }
+}
+@keyframes haloPulse { 0%, 100% { opacity: .35; transform: scale(.9); } 50% { opacity: 1; transform: scale(1.12); } }
+.popup h2 .congrats-title { display: block; margin-top: 2px; }
+
+.popup-message.is-ok { max-width: 100%; }
+.genuine-box {
+    position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;
+    width: 100%; margin: 10px auto 8px; padding: 12px 8px; border-radius: 16px;
+    background: linear-gradient(135deg, #0f4d25, #062c14);
+    border: 1.5px solid #34d399;
+    animation: emeraldPulse 1.6s ease-in-out infinite;
+}
+.genuine-box::before {                     /* light sweep across the box */
+    content: ''; position: absolute; top: 0; left: 0; width: 40%; height: 100%; pointer-events: none;
+    background: linear-gradient(90deg, transparent, rgba(167, 243, 208, .55), transparent);
+    transform: translateX(-160%) skewX(-22deg); animation: emeraldSweep 2.4s ease-in-out infinite;
+}
+.gb-text {
+    position: relative; white-space: nowrap; font-weight: 800; font-size: 16px; letter-spacing: .2px;
+    color: #ecfdf5; text-shadow: 0 0 8px rgba(52, 211, 153, .65);
+    animation: emeraldText 1.6s ease-in-out infinite;
+}
+@keyframes emeraldPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, .55), 0 8px 20px rgba(6, 44, 20, .3); border-color: #34d399; }
+    50% { box-shadow: 0 0 0 6px rgba(52, 211, 153, 0), 0 0 26px 4px rgba(52, 211, 153, .55); border-color: #a7f3d0; }
+}
+@keyframes emeraldText { 0%, 100% { color: #ecfdf5; text-shadow: 0 0 6px rgba(52, 211, 153, .5); } 50% { color: #ffffff; text-shadow: 0 0 14px rgba(110, 231, 183, 1); } }
+@keyframes emeraldSweep { 0% { transform: translateX(-160%) skewX(-22deg); } 60%, 100% { transform: translateX(360%) skewX(-22deg); } }
+.genuine-sub { display: block; font-size: calc(var(--fs-popup-text) - 1px); color: var(--text-muted); }
+@media screen and (min-width: 577px) { .gb-text { font-size: 18px; } }

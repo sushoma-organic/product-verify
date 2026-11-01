@@ -125,6 +125,8 @@ const I18N = {
         okCongrats: "অভিনন্দন!",
         okTitle: "আসল ও পরীক্ষিত পণ্য।",
         okMsg: "<strong>আপনার যাচাইকৃত পণ্যটি SUSHOMA-এর ১০০% আসল ও বিশুদ্ধ পণ্য।</strong><br>আমাদের অফিসিয়াল ডাটাবেজ দ্বারা এটি সফলভাবে ভেরিফাই করা হয়েছে। 🌿",
+        okLine: "আপনার যাচাইকৃত পণ্যটি SUSHOMA-এর ১০০% আসল ও বিশুদ্ধ পণ্য।",
+        okSub: "আমাদের অফিসিয়াল ডাটাবেজ দ্বারা এটি সফলভাবে ভেরিফাই করা হয়েছে। 🌿",
         notVerTitle: "পণ্যটি যাচাই করা যায়নি",
         notVerMsg: "উক্ত পণ্যটির Authentic status নিশ্চিত করা যায়নি।",
         notFoundTitle: "পণ্যটি পাওয়া যায়নি",
@@ -236,6 +238,8 @@ const I18N = {
         okCongrats: "Congratulations!",
         okTitle: "Authentic & Genuine.",
         okMsg: "<strong>Your item is an official, 100% genuine SUSHOMA product.</strong><br>Successfully verified through our official database. 🌿",
+        okLine: "Your product is a 100% genuine & pure SUSHOMA product.",
+        okSub: "Successfully verified through our official database. 🌿",
         notVerTitle: "Product Not Verified",
         notVerMsg: "The authentic status of this product could not be confirmed.",
         notFoundTitle: "Product Not Found",
@@ -335,7 +339,7 @@ const esc = (v) => String(v ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").
 const pct = (html) => String(html).replace(/([০-৯0-9]+\s?%)/g, '<b class="pct">$1</b>');
 const toBn = (n) => String(n).replace(/\d/g, (d) => "০১২৩৪৫৬৭৮৯"[d]);
 const num = (n) => (state.lang === "bn" ? toBn(n) : String(n));
-const compactId = (v) => String(v || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
+const compactId = (v) => String(v || "").replace(/[০-৯]/g, (d) => "০১২৩৪৫৬৭৮৯".indexOf(d)).toUpperCase().replace(/[^A-Z0-9]/g, "");
 const ID_LEN = CONFIG.ID_GROUPS.reduce((a, b) => a + b, 0);
 // "ab12cd34" / "AB 12 CD34" / "AB-12-CD34"  ->  "AB-12-CD34"
 function formatId(v) {
@@ -582,11 +586,15 @@ function renderPopup() {
     const msgs = { success: "okMsg", notVerified: "notVerMsg", notFound: "notFoundMsg", error: "errMsg" };
     // success: "অভিনন্দন! আসল ও পরীক্ষিত পণ্য।" as one heading
     els.popupTitle.innerHTML = ok
-        ? `<span class="congrats-word">${esc(t("okCongrats"))}</span> ${esc(t(titles[r.kind]))}`
+        ? `<span class="congrats-big" data-text="${esc(t("okCongrats"))}">${esc(t("okCongrats"))}</span>`
         : esc(t(titles[r.kind]));
     const cg = $("popupCongrats");
     if (cg) cg.hidden = true;
-    els.popupMessage.innerHTML = pct(ok ? t("okMsg") : `${t(msgs[r.kind])}<br><br>${t("failAdvice")}`);
+    els.popupMessage.innerHTML = ok
+        ? `<span class="genuine-box"><span class="gb-text">${esc(t("okLine"))}</span></span><span class="genuine-sub">${esc(t("okSub"))}</span>`
+        : pct(`${t(msgs[r.kind])}<br><br>${t("failAdvice")}`);
+    els.popupMessage.classList.toggle("is-ok", ok);
+    if (ok) requestAnimationFrame(fitGenuineLine);
 
     if (ok) {
         const d = r.data;
@@ -638,6 +646,16 @@ function verifyAnother() {
     state.result = null;
     setTimeout(() => els.input.focus(), 250);
 }
+
+// keep the "100% genuine" sentence on ONE line: shrink its font until it fits
+function fitGenuineLine() {
+    const box = document.querySelector(".genuine-box"), txt = box && box.querySelector(".gb-text");
+    if (!txt) return;
+    txt.style.fontSize = "";
+    let fs = parseFloat(getComputedStyle(txt).fontSize), guard = 0;
+    while (txt.scrollWidth > box.clientWidth - 24 && fs > 10 && guard++ < 40) { fs -= 0.5; txt.style.fontSize = fs + "px"; }
+}
+window.addEventListener("resize", () => { if (document.querySelector(".genuine-box")) fitGenuineLine(); });
 
 /* ---------- how many times this ID was searched ---------- */
 function countBlock(d) {
@@ -799,10 +817,12 @@ function init() {
     initFaq();
 
     els.form.addEventListener("submit", (e) => { e.preventDefault(); verifyProduct(); });
-    els.input.addEventListener("input", () => {
-        setFieldError("");
+    // Typing: leave the field alone so the phone keyboard (language switch,
+    // long-press space, Bangla/English IME) works normally. Format only when done.
+    els.input.addEventListener("input", () => setFieldError(""));
+    els.input.addEventListener("blur", () => {
         const f = formatId(els.input.value);
-        if (els.input.value !== f) els.input.value = f;
+        if (f && els.input.value !== f) els.input.value = f;
     });
     els.overlay.addEventListener("click", (e) => { if (e.target === els.overlay) closePopup(); });
     document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !closeMember()) closePopup(); });
